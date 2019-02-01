@@ -5148,7 +5148,6 @@ describeWithDOM('mount', () => {
         const constWrapper = mount(<FragmentConstExample />);
         expect(constWrapper.html()).to.equal('<div><span>Foo</span></div><div><span>Bar</span></div>');
       });
-
     });
   });
 

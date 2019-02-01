@@ -224,10 +224,16 @@ function nodeToHostNode(_node) {
     return null;
   }
   if (Array.isArray(node)) {
-    return node.map(item => ReactDOM.findDOMNode(item.instance));
+    return node.map((item) => {
+      if (item && item.instance) return ReactDOM.findDOMNode(item.instance);
+      return null;
+    });
   }
   if (Array.isArray(node.rendered) && node.nodeType === 'class') {
-    return node.rendered.map(item => ReactDOM.findDOMNode(item.instance));
+    return node.rendered.map((item) => {
+      if (item && item.instance) return ReactDOM.findDOMNode(item.instance);
+      return null;
+    });
   }
   return ReactDOM.findDOMNode(node.instance);
 }
